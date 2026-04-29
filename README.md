@@ -1,105 +1,71 @@
-# Ammar Ahmed Khan
+**Ammar Ahmed Khan**
+**Software Engineer | CS & AI Researcher**
 
-**Computer Vision Researcher | Software Engineer**
+I am a Software Engineering graduate who spent four years building things and researching why they work. My undergraduate work sits mostly in applied machine learning, anomaly detection, domain adaptation, and network security, and I am continuing that thread while working professionally as a software developer.
 
-I build intelligent systems grounded in mathematical rigor and engineered for real-world deployment. My work spans adversarial learning, biometric recognition, and anomaly detection—with a focus on bridging the gap between research and production.
-
-Currently exploring domain adaptation and unsupervised learning while professionally developing enterprise software systems.
-
----
-
-## Research Interests
-
-My research investigates the theoretical and practical challenges of visual intelligence:
-
-- **Domain Adaptation** – How can models generalize across distribution shifts without labeled target data?
-- **Adversarial Learning** – Exploring min-max optimization dynamics in neural networks
-- **Biometric Systems** – Robust face recognition under real-world constraints (lighting, occlusion, pose variation)
-- **Anomaly Detection** – Unsupervised methods for identifying outlier behavior in high-dimensional data
-
-I'm particularly drawn to problems at the intersection of **geometry, optimization, and perception**—where mathematical foundations directly inform algorithmic design.
+I write code that ships and papers that question. Not many people do both, and I think that combination matters.
 
 ---
 
-## Research & Technical Projects
+**What I have worked on**
 
-### Domain Adaptation with Adversarial Networks
-**Paper**: *Unsupervised Domain Adaptation for Image Classification using Domain-Adversarial Neural Networks*  
-**Code**: [github.com/AmmarAhmed1448/Domain-Adaptation-with-DANN](https://github.com/AmmarAhmed1448/Domain-Adaptation-with-DANN)
+**Domain Adaptation with Adversarial Networks**
+ https://github.com/AmmarAhmed1448/Domain-Adaptation-with-DANN
 
-Investigated transfer learning under domain shift using adversarial training. Implemented DANN architecture with ResNet-50 backbone, achieving Nash equilibrium between feature extractor and domain discriminator. Demonstrated 50% target accuracy on MNIST→MNIST-M adaptation without target labels—validating the theoretical framework of learning domain-invariant representations.
-
-**Key contributions**: Minimax optimization analysis, gradient reversal layer implementation, convergence diagnostics
+The core problem: a model trained on CIFAR-10 does not perform well when tested on STL-10, even though both datasets contain similar object categories. The distribution shift between the two is enough to break standard classifiers. I implemented a Domain-Adversarial Neural Network on a ResNet-50 backbone, using a Gradient Reversal Layer to push the feature extractor toward producing representations that a domain discriminator cannot distinguish. Target accuracy improved from a 45% baseline to 50.04%, with t-SNE visualizations and discriminator accuracy (~51%) confirming partial domain invariance.
 
 ---
 
-### Insider Threat Detection via Unsupervised Anomaly Detection
-**Paper**: *Advancing Insider Threat Detection with Unsupervised Anomaly Detection and User Behavious Analytics*  
-**Code**: [github.com/AmmarAhmed1448/Insider-Threat-Detection](https://github.com/AmmarAhmed1448/Insider-Threat-Detection-with-Unsupervised-Anomaly-Detection-and-UBA)
+**Insider Threat Detection via Unsupervised Anomaly Detection**
+https://github.com/AmmarAhmed1448/Insider-Threat-Detection-with-Unsupervised-Anomaly-Detectio
+n-and-UBA
 
-Developed unsupervised framework for detecting malicious insiders in enterprise logs. Combined deep autoencoders with One-Class SVM and graph-theoretic user behavior analysis. Designed dynamic threshold mechanism using reconstruction error statistics (Z-score normalization) to flag anomalous access patterns.
-
-**Methods**: Variational autoencoders, OCSVM decision boundaries, temporal graph construction
+The challenge here is subtle: insider threats look like normal activity on the surface. I worked on the CERT Insider Threat Dataset (r4.2), engineering behavioral features from logon patterns, device usage, file transfers, and OCEAN psychometric scores. Autoencoder-based anomaly detection with z-score thresholding was applied and benchmarked against One-Class SVM. User-PC relationships were modeled using bipartite graph analysis. LSTM-based sequence modeling was also attempted before pivoting to the autoencoder approach after evaluating feasibility within project scope.
 
 ---
 
-### Real-Time DDoS Mitigation in Software-Defined Networks
-**Paper**: *Detecting and Mitigating DDoS Attacks in SDN Environments Using Machine Learning*  
-**Code**: [github.com/AmmarAhmed1448/SDN-DDoS-Detection](https://github.com/AmmarAhmed1448/Detecting-and-Mitigating-DDoS-Attacks-in-SDN-Environments)
+**DDoS Detection in Software-Defined Networks**
+https://github.com/AmmarAhmed1448/Detecting-and-Mitigating-DDoS-Attacks-in-SDN-Environments
 
-Designed real-time traffic classification system for OpenFlow networks. Trained Random Forest classifier on flow-level features (packet rate, entropy, protocol distribution) and integrated with Ryu SDN controller for automated rule injection. System achieves sub-second detection and blocking of malicious flows.
-
-**Engineering**: Mininet network simulation, controller-switch communication protocols, production deployment considerations
+I designed a three-layer detection architecture integrating Mininet for network emulation, a Ryu SDN controller, and OpenFlow13. A virtual topology of 6 switches and 18 hosts was built to simulate both benign and attack traffic. A Random Forest classifier trained on CICIDS 2017 runs predictions on a 10-second polling interval, with detected attacks triggering alerts identifying the victim host. Flow-rule-based blocking via the Ryu controller was designed as a system component and proposed for future implementation.
 
 ---
 
-### Biometric Attendance System with Face Recognition
-**Code**: [https://github.com/AmmarAhmed1448/Facelogger](https://github.com/AmmarAhmed1448/Facelogger)
+**KNN vs. Decision Trees on Medical Datasets**
+ https://github.com/AmmarAhmed1448/comparitive-analysis-of-KNN-and-DT
 
-Engineered end-to-end face recognition system robust to practical deployment challenges. Implemented cascade detection (Haar/HOG) with CNN-based verification network.
+A systematic comparison of both classifiers across three medical datasets of varying sizes — Heart Failure (~300 instances), Diabetes (~769 instances), and Stroke (~5,110 instances). Evaluated on accuracy, execution time, sensitivity, specificity, and precision with an 80/20 split. KNN consistently outperformed Decision Tree in accuracy; Decision Tree was faster across all dataset sizes.
 
-**Focus**: Geometric invariance, embedding space optimization, false acceptance/rejection tradeoffs
+---
+**Biometric Attendance System**
+Code: github.com/AmmarAhmed1448/Facelogger
+
+Backend and data layer for an automated attendance system using face recognition. Built with Flask and MongoDB, handling attendance marking, late arrival tracking, and absence recording. Integrated Haar Cascade-based detection with the attendance logic. Designed for office environments with a registered user base.
 
 ---
 
-### 🔬 Featured Research & Projects
+**Technical skills**
 
-| Project | Tech Stack | Impact |
-| :--- | :--- | :--- |
-| **[Domain Adaptation (DANN)](https://github.com/AmmarAhmed1448/Domain-Adaptation-with-DANN)** | `PyTorch` `ResNet-50` `Adversarial Learning` | Achieved **Nash Equilibrium** between feature extractor & discriminator; boosted target accuracy to **50.04%**. |
-| **[Insider Threat Detection](https://github.com/AmmarAhmed1448/Insider-Threat-Detection-with-Unsupervised-Anomaly-Detection-and-UBA)** | `Autoencoders` `OCSVM` `Graph Theory` | Detected anomalies in user behavior logs using dynamic reconstruction error thresholding (Z-scores). |
-| **[SDN DDoS Mitigation](https://github.com/AmmarAhmed1448/Detecting-and-Mitigating-DDoS-Attacks-in-SDN-Environments)** | `Mininet` `Ryu Controller` `Random Forest` | Real-time flow classification and automated rule injection to block malicious IPs in software-defined networks. |
-| **[Biometric Attendance](https://github.com/AmmarAhmed1448/Facelogger)** | `OpenCV` `CNN` `Haar Cascades` | Engineered an end-to-end face recognition pipeline robust to varying lighting conditions. |
-| **[KNN vs. Decision Trees](https://github.com/AmmarAhmed1448/KNN-vs-Decision-tree-for-traffic-prediction)** | `Python` `Scikit-Learn` `Algorithmic Analysis` | Benchmarked **Big-O time complexity** and accuracy for traffic forecasting; analyzed scalability limits. |
+Languages: Python, C++, C#, JavaScript, SQL
+Deep Learning: PyTorch, TensorFlow, Keras, OpenCV, scikit-learn
+Infrastructure: Docker, Git, Linux, PostgreSQL, Azure, AWS
+Research: Jupyter, LaTeX
 
----
-
-## Technical Foundation
-
-**Core**: Python, C++, C#, javacript, SQL  
-**Deep Learning**: PyTorch, TensorFlow, OpenCV, scikit-learn  
-**Infrastructure**: Docker, Git, Linux, PostgreSQL, Kuberntes, Azure, AWS
-**Research Tools**: Jupyter, LaTeX
-
-**Mathematical Background**: Linear Algebra, Calculus, Probability & Statistics, Differential Equations, Stochastic Processes
+Mathematical background: Linear Algebra, Calculus, Probability and Statistics, Differential Equations, Stochastic Processes
 
 ---
 
-## Current Work
+**Currently**
 
-**Professional**: Software Engineer developing enterprise ERP solutions and integration platforms  
-**Research**: Extending domain adaptation work; exploring self-supervised learning in computer vision  
-**Learning**: Advanced optimization methods, geometric deep learning, 3D vision fundamentals
+Professionally: Building enterprise ERP modules and integration platforms at an early-stage software startup
+Research direction: Interested in extending domain adaptation work and exploring self-supervised learning in computer vision
+Learning: Robotics fundamentals, geometric deep learning, 3D vision
 
 ---
 
-## What Drives Me
+**What I am looking for**
 
-I'm fascinated by the question: *How do we build visual systems that understand, not just recognize?*
-
-The most interesting problems in computer vision aren't purely algorithmic—they're about understanding the geometry of visual data, the statistics of natural images, and the optimization landscapes of neural networks. I believe the next generation of intelligent systems will come from researchers who can navigate both the theory (differential geometry, information theory, statistical learning) and the practice (distributed training, model compression, deployment constraints).
-
-My goal is to contribute to this future—conducting research that advances our theoretical understanding while building systems that work reliably in the real world.
+A research environment where I can work on real, open problems the kind that do not have clean solutions yet. My background is in AI and software engineering. The direction I want to move in is intelligent systems that operate in physical environments. That intersection is where I want to spend the next few years.
 
 ---
 
@@ -107,7 +73,6 @@ My goal is to contribute to this future—conducting research that advances our 
 
 **Email**: aammarahmed1448@gmail.com@gmail.com  
 **LinkedIn**: [linkedin.com/in/ammarahmedkhan](https://www.linkedin.com/in/ammar-ahmed-khan-26370522b/)
-**Research Interests**: Domain Adaptation, Self-Supervised Learning, Geometric Deep Learning, 3D Computer Vision
 
 ---
 
